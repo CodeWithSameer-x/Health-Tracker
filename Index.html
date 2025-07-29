@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tracker App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Audio for Alarm -->
+    <audio id="alarmSound" src="https://www.soundjay.com/buttons/beep-01a.mp3"></audio>
+
+    <!-- Login/Register Page -->
+    <div class="auth-container" id="authContainer">
+        <div class="auth-box">
+            <h2 id="authTitle">Login</h2>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button onclick="handleAuth()">Login</button>
+            <p class="auth-toggle" onclick="toggleAuth()">Don't have an account? Register</p>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div class="home-container" id="homeContainer">
+        <div class="navbar">
+            <div class="profile-left">
+                <img id="profilePhoto" src="https://via.placeholder.com/40" alt="Profile">
+                <span id="welcomeMessage"></span>
+            </div>
+            <div class="profile-section">
+                <button onclick="toggleTheme()" id="themeToggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button onclick="openModal('settings')" title="Settings"><i class="fas fa-cog"></i></button>
+                <button onclick="openModal('goals')" title="Set Goals"><i class="fas fa-bullseye"></i></button>
+            </div>
+        </div>
+        <div class="cards-container">
+            <div class="card" onclick="openModal('bp')"><i class="fas fa-heartbeat"></i><p>Blood Pressure</p></div>
+            <div class="card" onclick="openModal('heart')"><i class="fas fa-heart"></i><p>Heart Rate</p></div>
+            <div class="card" onclick="openModal('calories')"><i class="fas fa-fire"></i><p>Calories Burnt</p></div>
+            <div class="card" onclick="openModal('steps')"><i class="fas fa-shoe-prints"></i><p>Step Counter</p></div>
+            <div class="card" onclick="openModal('hydration')"><i class="fas fa-tint"></i><p>Hydration</p></div>
+            <div class="card" onclick="openModal('sleep')"><i class="fas fa-bed"></i><p>Sleep Cycle</p></div>
+            <div class="card" onclick="openModal('alarm')"><i class="fas fa-bell"></i><p>Alarm</p></div>
+            <div class="card" onclick="openModal('running')"><i class="fas fa-running"></i><p>Running Timer</p></div>
+            <div class="card" onclick="openModal('distance')"><i class="fas fa-route"></i><p>Distance Calculator</p></div>
+            <div class="card" onclick="openModal('stopwatch')"><i class="fas fa-stopwatch"></i><p>Stopwatch</p></div>
+            <div class="card" onclick="openModal('medicine')"><i class="fas fa-prescription-bottle"></i><p>Medicine Alarm</p></div>
+            <div class="card" onclick="openModal('today')"><i class="fas fa-calendar-day"></i><p>Today's Activity</p></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle"></h2>
+            <div id="modalBody"></div>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
